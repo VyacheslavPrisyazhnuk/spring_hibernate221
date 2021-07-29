@@ -19,8 +19,8 @@ public class UserServiceImp implements UserService {
    public void add(User user) {
       userDao.add(user);
    }
-   public void getUserByCarId(int model) {
-      userDao.getUserByCarId(model);
+   public void getUserByCarId(String model, int series) {
+      userDao.getUserByCarId(model, series);
    }
 
    @Transactional(readOnly = true)

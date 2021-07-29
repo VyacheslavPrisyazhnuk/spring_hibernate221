@@ -22,9 +22,9 @@ public class MainApp {
       Car car1 = new Car("ВАЗ", 2101);
       Car car2 = new Car("ВАЗ", 2102);
       Car car3 = new Car("ВАЗ", 2103);
-      user1.setCar(car1);
-      user2.setCar(car2);
-      user3.setCar(car3);
+      user1.setCar(car3);
+      user2.setCar(car1);
+      user3.setCar(car2);
       userService.add(user1);
       userService.add(user2);
       userService.add(user3);
@@ -33,7 +33,7 @@ public class MainApp {
          System.out.println("Пользователь" + user.getFirstName() + "добавлен");
           System.out.println(user);
       }
-      userService.getUserByCarId(2101);
+      userService.getUserByCarId("ВАЗ", 2101 );
       context.close();
    }
 }
