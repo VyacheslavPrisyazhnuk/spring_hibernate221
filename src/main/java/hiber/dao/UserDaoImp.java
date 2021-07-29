@@ -1,7 +1,5 @@
 package hiber.dao;
 
-import hiber.config.AppConfig;
-import hiber.model.Car;
 import hiber.model.User;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -32,11 +30,11 @@ public class UserDaoImp implements UserDao {
    }
    public void getUserByCarId(int model) {
      try (Session session = sessionFactory.openSession()) {
-         String HQL="FROM Car car LEFT OUTER JOIN FETCH car.user WHERE  car.series =:car_id";
-         List <Car> list = session.createQuery(HQL, Car.class).setParameter("car_id", model).list();
-         for (Car item: list) {
+         String HQL="FROM User user LEFT OUTER JOIN FETCH user.car WHERE  user.car.series =:car_id";
+         List <User> list = session.createQuery(HQL, User.class).setParameter("car_id", model).list();
+         for (User item: list) {
              System.out.println("вывод юзера по серии автоваза");
-             System.out.println(item.getUser());
+             System.out.println(item);
          }
       } catch (HibernateException e) {
          e.printStackTrace();
